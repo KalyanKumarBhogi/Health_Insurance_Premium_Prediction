@@ -21,22 +21,30 @@ import numpy as np <p>
 import pandas as pd <p>
 data = pd.read_csv("Health_insurance.csv") <p>
 data.head() <p>
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/f49231e4-da39-4b85-ace9-36341c7821b5)
 
 Before moving forward, let’s have a look at whether this dataset contains any null values or not: <p>
 
 data.isnull().sum() <p>
 
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/066c300c-9d74-48b6-82f3-e91b33bb643c)
+
+
 The dataset is therefore ready to be used. After getting the first impressions of this data, I noticed the “smoker” column, which indicates whether the person smokes or not. This is an important feature of this dataset because a person who smokes is more likely to have major health problems compared to a person who does not smoke. So let’s look at the distribution of people who smoke and who do not: <p>
+
 import plotly.express as px <p>
 data = data  <p>
 figure = px.histogram(data, x = "sex", color = "smoker", title= "Number of Smokers") <p>
 figure.show() <p>
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/365cb2ac-95a1-453d-bbe1-961f7a4e3ae0)
 
 According to the above visualisation, 547 females, 517 males don’t smoke, and 115 females, 159 males do smoke. It is important to use this feature while training a machine learning model, so now I will replace the values of the “sex” and “smoker” columns with 0 and 1 as both these columns contain string values: <p>
 
 data["sex"] = data["sex"].map({"female": 0, "male": 1})  <p>
 data["smoker"] = data["smoker"].map({"no": 0, "yes": 1})  <p>
 print(data.head())  <p>
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/63e0fe66-5409-482b-96aa-7c68e53541f7)
+
 
 Now let’s have a look at the distribution of the regions where people are living according to the dataset: <p>
 
@@ -45,6 +53,8 @@ regions = pie.index <p>
 population = pie.values <p>
 fig = px.pie(data, values=population, names=regions) <p>
 fig.show()  <p>
+
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/c286ccd3-c6cc-41b2-ba40-e85ded898250)
 
 # Health Insurance Premium Prediction Model <p>
 Now let’s move on to training a machine learning model for the task of predicting health insurance premiums. First, I’ll split the data into training and test sets <p>
@@ -66,4 +76,7 @@ ypred = forest.predict(xtest) <p>
 data = pd.DataFrame(data={"Predicted Premium Amount": ypred}) <p>
 print(data.head()) <p>
 
-So this is how you can train a machine learning model for the task of health insurance premium prediction <p>
+![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/530eccdd-bd6a-411c-be9b-353d3eae74da)
+
+# Summary
+The premium amount of a health insurance policy depends on person to person as many factors affect the premium amount of a health insurance policy. <p>
