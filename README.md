@@ -78,5 +78,5 @@ print(data.head()) <p>
 
 ![image](https://github.com/KalyanKumarBhogi/Health_Insurance_Premium_Prediction/assets/144279085/530eccdd-bd6a-411c-be9b-353d3eae74da)
 
-# Summary
-The premium amount of a health insurance policy depends on person to person as many factors affect the premium amount of a health insurance policy. <p>
+# Conclusion <p>
+The health insurance premium prediction model, based on a dataset containing factors such as age, gender, BMI, smoking status, and region, utilized the random forest regression algorithm. The model successfully predicted premium amounts, taking into account the significant impact of variables like smoking status on health risks. The dataset preprocessing involved mapping categorical values, such as gender and smoking, to numerical representations. The analysis highlighted the distribution of smokers and non-smokers in the dataset. The trained model demonstrated its efficacy in predicting health insurance premiums, providing a valuable tool for insurers to assess personalized risk factors and set appropriate premium amounts for individuals. This approach contributes to a more accurate and data-driven estimation of health insurance costs based on individual characteristics. <p>
